@@ -20,5 +20,6 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://kit.fontawesome.com/45b63b14b4.js" crossorigin="anonymous"></script>
 
 </html>
