@@ -31,7 +31,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Pemilik Perangkat Daerah</span>
                             <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
-                                value="{{ $pendampingan->id_perangkat_daerah }} {{ $pendampingan->nama_perangkat_daerah }}">
+                                value="{{ $pendampingan->id_perangkat_daerah }}">
                         </div>
                         <div class="row g-2">
                             <div class="input-group mb-3 col-md-6">

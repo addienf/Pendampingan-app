@@ -54,10 +54,10 @@ Route::post('/addPD', [PerangkatDaerahController::class, 'store']);
 // Detail Pendampingan
 Route::get('/listDetail', [DetailPendampinganController::class, 'index']);
 Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
-Route::get('/detailAplikasi/{id}', [DetailPendampinganController::class, 'edit']);
-Route::get('/dt', function () {
-    return view('Content.DetailPendampingan');
-});
+Route::get('/detailAplikasi/{id_pendampingan}/{id}', [DetailPendampinganController::class, 'edit']);
+Route::get('listDetail/addDt/{id}', [DetailPendampinganController::class, 'create']);
+Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store']);
+
 // Route::get('/add', [PendampinganController::class, 'create']);
 // Route::post('/add', [PendampinganController::class, 'store']);
 // Route::get('/edit/{id}', [PendampinganController::class, 'edit']);

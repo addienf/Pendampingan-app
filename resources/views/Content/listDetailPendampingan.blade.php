@@ -7,8 +7,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
+                    <li class="breadcrumb-item"><a href="{{ 'addDt/' . $pendampingan->id }}">Tambah Data</a></li>
                 </ol>
             </nav>
             <table class="table align-middle text-center">
@@ -27,6 +26,7 @@
                     <input type="text" class="d-none" value="{{ $current_date = date('Y-m-d') }}">
                     @foreach ($detail_pendampingan as $list)
                         <tr>
+
                             <td>{{ $list['id'] }}</td>
                             <td>{{ $list['nama_aplikasi'] }}</td>
                             <td>{{ $list['tanggal'] }}</td>
@@ -37,8 +37,8 @@
                                 <form action="{{ url('list', $list->id) }}" method="post">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    <a href="{{ url('dt') }}" class="btn btn-light"><i
-                                            class="fa-solid fa-eye mx-2"></i></a>
+                                    <a href="{{ url('detailAplikasi/' . $list->id_pendampingan . '/' . $list->id) }}"
+                                        class="btn btn-light"><i class="fa-solid fa-eye mx-2"></i></a>
                                 </form>
                             </td>
                         </tr>

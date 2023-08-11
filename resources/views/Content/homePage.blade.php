@@ -9,7 +9,6 @@
                     <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('listDetail') }}">Detail Pendampingan</a></li>
                 </ol>
             </nav>
             <table class="table align-middle text-center">
