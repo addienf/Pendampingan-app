@@ -2,6 +2,12 @@
 @section('content')
     <div class="container w-50 mt-5">
         <h1>Add Pendampingan Page</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
+            </ol>
+        </nav>
         <form action="add" method="post">
             {{ csrf_field() }}
             <div class="mb-3">
@@ -10,7 +16,11 @@
             </div>
             <div class="mb-3">
                 <label for="floatingInput">Perangkat Daerah</label>
-                <input type="text" class="form-control mt-2" name="perangkat_daerah">
+                <select name="id_perangkat_daerah" class="form-select">
+                    @foreach ($perangkat_daerah as $pay)
+                        <option value="{{ $pay->id_perangkat_daerah }}">{{ $pay->nama_perangkat_daerah }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <label class="mb-2">Status Aplikasi</label>

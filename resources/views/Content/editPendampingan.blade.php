@@ -13,8 +13,13 @@
             </div>
             <div class="mb-3">
                 <label for="floatingInput">Perangkat Daerah</label>
-                <input type="text" class="form-control mt-2" name="perangkat_daerah"
-                    value="{{ $pendampingan->perangkat_daerah }}">
+                {{-- <input type="text" class="form-control mt-2" name="perangkat_daerah"
+                    value="{{ $pendampingan->perangkat_daerah }}"> --}}
+                <select name="id_perangkat_daerah" class="form-select">
+                    @foreach ($perangkat_daerah as $pay)
+                        <option value="{{ $pay->id_perangkat_daerah }}">{{ $pay->nama_perangkat_daerah }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <label for="floatingInput">Status Aplikasi</label>

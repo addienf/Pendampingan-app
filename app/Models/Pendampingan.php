@@ -9,5 +9,5 @@ class Pendampingan extends Model
 {
     use HasFactory;
     protected $table = "pendampingan";
-    protected $fillable = ['nama_aplikasi', 'perangkat_daerah', 'status_aplikasi', 'status_rekomendasi', 'pic', 'no_telp', 'spesifikasi'];
+    protected $fillable = ['nama_aplikasi', 'id_perangkat_daerah', 'status_aplikasi', 'status_rekomendasi', 'pic', 'no_telp', 'spesifikasi'];
 }

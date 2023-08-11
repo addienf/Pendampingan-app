@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pendampingan;
+use App\Models\PerangkatDaerah;
 use Illuminate\Http\Request;
 
 class PendampinganController extends Controller
@@ -10,12 +11,16 @@ class PendampinganController extends Controller
     //
     public function index()
     {
-        $data['pendampingan'] = Pendampingan::all();
-        return view('Content.homePage', $data);
+        $data['pendampingan'] = Pendampingan::join('perangkat_daerah', 'pendampingan.id_perangkat_daerah', '=', 'perangkat_daerah.id_perangkat_daerah')
+            ->select('pendampingan.*', 'perangkat_daerah.nama_perangkat_daerah')
+            ->get();
+        $data2['perangkat_daerah'] = PerangkatDaerah::all();
+        return view('Content.homePage', $data, $data2);
     }
     public function create()
     {
-        return view('Content.addPendampingan');
+        $data['perangkat_daerah'] = PerangkatDaerah::all();
+        return view('Content.addPendampingan', $data);
     }
 
     public function store(Request $request)
@@ -29,7 +34,8 @@ class PendampinganController extends Controller
     public function edit($id)
     {
         $data['pendampingan'] = Pendampingan::find($id);
-        return view('Content.editPendampingan', $data);
+        $data2['perangkat_daerah'] = PerangkatDaerah::all();
+        return view('Content.editPendampingan', $data, $data2);
     }
 
     public function update($id, Request $request)
