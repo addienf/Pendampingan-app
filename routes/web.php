@@ -56,7 +56,7 @@ Route::get('/listDetail', [DetailPendampinganController::class, 'index']);
 Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
 Route::get('/detailAplikasi/{id_pendampingan}/{id}', [DetailPendampinganController::class, 'edit']);
 Route::get('listDetail/addDt/{id}', [DetailPendampinganController::class, 'create']);
-Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store']);
+Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store2']);
 
 // Route::get('/add', [PendampinganController::class, 'create']);
 // Route::post('/add', [PendampinganController::class, 'store']);

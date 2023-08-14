@@ -7,10 +7,10 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
                 </ol>
             </nav>
+            <a href="{{ url('add') }}" class="btn btn-primary col-12 my-3">Tambah Data</a>
             <table class="table align-middle text-center">
                 <thead>
                     <tr>

@@ -8,7 +8,7 @@
                 <li class="breadcrumb-item"><a href="{{ url('listDetail') }}">List Data Pendampingan</a></li>
             </ol>
         </nav>
-        <form action="addDt" method="post">
+        <form action="addDt" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="mb-3">
                 <label for="floatingInput">ID Pendampingan</label>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="floatingInput">Upload File Pendukung</label>
-                    <input type="file" class="form-control mt-2">
+                    <input type="file" class="form-control mt-2" name="upload_file[]" multiple="true">
                 </div>
             </div>
             <div class="row g-2">
