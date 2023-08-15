@@ -7,9 +7,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ 'addDt/' . $pendampingan->id }}">Tambah Data</a></li>
                 </ol>
             </nav>
+            <a href="{{ 'addDt/' . $pendampingan->id }}" class="btn btn-primary col-12 my-3">Tambah Data Pendampingan</a>
             <table class="table align-middle text-center">
                 <thead>
                     <tr>

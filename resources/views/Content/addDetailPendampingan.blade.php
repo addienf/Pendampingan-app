@@ -1,6 +1,6 @@
 @extends('Layout.layout')
 @section('content')
-    <div class="container w-50 mt-5">
+    <div class="container w-75 mt-5">
         <h1>Add Detail Pendampingan Page</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">

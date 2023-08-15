@@ -1,11 +1,10 @@
 @extends('Layout.layout')
 @section('content')
-    <div class="container w-50 mt-5">
+    <div class="container w-75 mt-5">
         <h1>Add Perangkat Daerah</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
             </ol>
         </nav>
         <form action="addPD" method="post">
@@ -21,7 +20,7 @@
             <button type="submit" class="btn btn-primary col-12 mt-2">Submit</button>
         </form>
     </div>
-    <div class="container w-50 mt-5">
+    <div class="container w-75 mt-5">
         <table class="table align-middle text-center">
             <thead>
                 <tr>

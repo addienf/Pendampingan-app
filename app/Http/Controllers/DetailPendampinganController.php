@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\DetailPendampingan;
 use App\Models\Pendampingan;
+use App\Models\PerangkatDaerah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class DetailPendampinganController extends Controller
@@ -68,23 +70,30 @@ class DetailPendampinganController extends Controller
 
         if ($request->upload_file) {
             foreach ($request->upload_file as $file) {
+                $i = 0;
 
                 $fileName = $file->getClientOriginalName();
-                $filePath = 'uploads/' . $fileName;
-
+                $filePath = 'uploads/' . uniqid() . $fileName;
                 $path = Storage::disk('public')->put($filePath, file_get_contents($file));
                 $path = Storage::disk('public')->url($path);
-
                 // // Create files
                 DetailPendampingan::create([
                     'id_pendampingan' => $request->id_pendampingan,
                     'tanggal' => $request->tanggal,
                     'deskripsi' => $request->deskripsi,
                     'keterangan' => $request->keterangan,
-                    'upload_file' => $fileName
+                    'upload_file' => $filePath
                 ]);
             }
         }
         return redirect('list');
+    }
+
+    public function homeDetail($id)
+    {
+        $data['pendampingan'] = Pendampingan::find($id);
+        $id2 = DB::table('detail_pendampingan')->latest('created_at')->first();
+        $data2['detail_pendampingan'] = DetailPendampingan::find($id2->id);
+        return view('Content.DetailPendampingan', $data, $data2);
     }
 }

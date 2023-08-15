@@ -10,7 +10,7 @@
                     <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
                 </ol>
             </nav>
-            <a href="{{ url('add') }}" class="btn btn-primary col-12 my-3">Tambah Data</a>
+            <a href="{{ url('add') }}" class="btn btn-primary col-12 my-3">Tambah Data Aplikasi</a>
             <table class="table align-middle text-center">
                 <thead>
                     <tr>
