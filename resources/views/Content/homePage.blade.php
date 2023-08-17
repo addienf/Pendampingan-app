@@ -19,11 +19,11 @@
                         <th>Perangkat Daerah</th>
                         <th>Status Aplikasi</th>
                         <th>Status Rekomendasi</th>
+                        <th>Tanggal</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <input type="text" class="d-none" value="{{ $current_date = date('Y-m-d') }}">
                     @foreach ($pendampingan as $list)
                         <tr>
                             <td>{{ $list['id'] }}</td>
@@ -31,6 +31,7 @@
                             <td>{{ $list['nama_perangkat_daerah'] }}</td>
                             <td>{{ $list['status_aplikasi'] }}</td>
                             <td>{{ $list['status_rekomendasi'] }}</td>
+                            <td>{{ $list['tanggal'] }}</td>
                             <td>
                                 <form action="{{ url('list', $list->id) }}" method="post">
                                     {{ csrf_field() }}
