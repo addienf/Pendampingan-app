@@ -1,5 +1,6 @@
 @extends('Layout.layout')
 @section('content')
+
     <div class="container w-75 mt-5">
         <h1>Selamat Datang {{ Auth::user()->name }} ! <a class="btn btn-primary" href="logout" role="button">Logout</a> </h1>
         <div class="container w-100 mt-2">

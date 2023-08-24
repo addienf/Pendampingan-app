@@ -1,6 +1,8 @@
 @extends('Layout.layout')
 @section('content')
-    <div class="container w-50 mt-5">
+@include('Component.sidebar')
+<div class = "cardSidebar">
+    <div class="container w-50 mt-3">
         <h1>Add Pendampingan Page</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -55,4 +57,5 @@
             <button type="submit" class="btn btn-primary col-12 mt-2">Submit</button>
         </form>
     </div>
+</div>
 @endsection

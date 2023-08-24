@@ -1,6 +1,9 @@
 @extends('Layout.layout')
 @section('content')
-    <div class="container w-75 mt-5">
+@include('Component.sidebar')
+<div class = "cardSidebar">
+<div class ="cardTable">
+    <div class="container w-80 mt-10">
         <h1>Selamat Datang {{ Auth::user()->name }} ! <a class="btn btn-primary" href="logout" role="button">Logout</a> </h1>
         <div class="container w-100 mt-2">
             <h1>Data Aplikasi</h1>
@@ -50,4 +53,7 @@
             </table>
         </div>
     </div>
+    </div>
+</div>
+</div>
 @endsection
