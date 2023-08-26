@@ -1,6 +1,6 @@
 @extends('Layout.layout')
 @section('content')
-    @include('Component.sidebar')
+    {{-- @include('Component.sidebar') --}}
     <div class="cardSidebar">
         <div class="container w-50 mt-5">
             <h1>Edit Pendampingan Page</h1>

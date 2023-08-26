@@ -14,13 +14,7 @@
 </head>
 
 <body>
-    <div class="container">
-        {{-- @include('Component.navbar') --}}
-        <div class="content">
-            @include('Component.sidebar')
-            @yield('content')
-        </div>
-    </div>
+    @yield('content')
 </body>
 
 {{-- JS --}}
