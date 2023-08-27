@@ -1,7 +1,7 @@
 <div class="wrapper">
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Diskominfo Jabar</h3>
+            <h3><img src="img\logodiskominfo.png" alt="Card Kiri"></h3>
         </div>
         <ul class="list-unstyled components">
             <p>Dummy Heading</p>

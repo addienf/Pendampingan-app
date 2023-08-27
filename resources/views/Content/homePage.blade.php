@@ -4,13 +4,19 @@
         <div class="container">
             <div class="card">
                 <div class="header">
-                    <h1>Data Aplikasi</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
-                        </ol>
-                    </nav>
+                    <div class="header-kiri">
+                        <h1>Data Aplikasi</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="header-kanan">
+                        <i class="fa-regular fa-circle-user"></i>
+                        <a class="btn btn-primary" href="logout" role="button">Logout</a>
+                    </div>
                 </div>
                 <div class="btn-add">
                     <a href="{{ url('add') }}" class="btn btn-primary col-12 my-3">Tambah Data Aplikasi</a>

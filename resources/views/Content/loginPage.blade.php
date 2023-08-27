@@ -4,7 +4,7 @@
         <div class="container">
             <div class="login-container">
                 <div class="card-kiri">
-                    <img class="img-kiri" src="img\dahyun.png" alt="Card Kiri">
+                    <img class="img-kiri" src="img\icon2.png" alt="Card Kiri">
                 </div>
                 <div class="card-kanan">
                     <img class="img-kanan" src="img\Cardkanan.png" alt="Card Kanan">

@@ -1,12 +1,13 @@
 @extends('Layout.layout')
+@include('Component.navbar')
 @section('content')
-@include('Component.sidebar')
-        <div class = "cardSidebar">
-            <div class="container w-50 mt-5">
-                <h1>Register Page</h1>
-                    <form action="post-register" method="post">
-                    {{ csrf_field() }}
-                    @if ($errors->any())
+    {{-- @include('Component.sidebar') --}}
+    {{-- <div class="cardSidebar"> --}}
+    <div class="container w-50 mt-5">
+        <h1>Register Page</h1>
+        <form action="post-register" method="post">
+            {{ csrf_field() }}
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -47,10 +48,8 @@
                 <div class="g-recaptcha mb-3" data-sitekey="6LeayksnAAAAAF1GUZP2TRThZVtpkkC5WsehUqzM"></div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-         </div>
-        </div>
-     </div>
+        </form>
     </div>
-</div>
+    </div>
+
 @endsection
