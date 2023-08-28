@@ -14,7 +14,9 @@
                         </nav>
                     </div>
                     <div class="header-kanan">
-                        <a class="fa-regular fa-circle-user btn btn-primary" href="logout" role="button">Logout</a>
+                      
+                            <a class="btn fa-solid fa-user " href="logout" role="button">Logout</a>
+                        
                     </div>
                 </div>
                 <div class="btn-add">

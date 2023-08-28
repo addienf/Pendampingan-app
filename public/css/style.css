@@ -85,7 +85,7 @@
 	width: 1125px;
 	height: 93vh;
 	padding: 10px 10px;
-	background-color: beige;
+	background-color: none;
 }
 .table{
 	border-color: #252525;
@@ -95,13 +95,13 @@
 	justify-content: space-between;
 	align-items: center;
 	padding-top: 27px;
-	background-color: aqua;
+	background-color: none;
 }
 /* .header-kiri{
 
 } */
 .header-kanan{
-	display: grid;
+	display: flex;
 }
 .card .table-card{
 	border-color: #252525;
@@ -157,21 +157,38 @@
 	cursor: pointer;
 	border-radius: 5px;
   }
+  .btn-back{
+	border-radius: 10px;
+	background-color: #f1f1f1;
+  }
 .h1{
 	font-size: 25px;
+	justify-content: end;
 }
+
+.previous{
+	background-color: #f1f1f1;
+	color: black;
+}
+.next{
+	background-color: #04AA6D;
+	color: white;
+}
+.round {
+	border-radius: 50%;
+  }
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
 .wrapper {
-	flex: 0 0 250px;
+	flex: 0 0 150px;
 }
 
 #sidebar {
     min-width: 250px;
-    max-width: 250px;
+    max-width: 200px;
 	height: 100%;
     background: #F5F5FC;
     color: #252525;
@@ -219,14 +236,7 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
+/* 
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
@@ -254,7 +264,7 @@ a.article,
 a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
-}
+} */
 
 .pendampingan{
 	display: flex;

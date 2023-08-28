@@ -1,9 +1,11 @@
 @extends('Layout.layout')
 @section('content')
-    <div class="container w-75 mt-5">
-        <div>Selamat Datang {{ Auth::user()->name }} ! <a class="btn btn-primary" href="logout" role="button">Logout</a></div>
-        <div class="container w-100 mt-2">
-            <nav aria-label="breadcrumb">
+<div class="body">
+    <div class="container">
+            <div class="h1 header-kanan justify-content-md-end mr-3">Selamat Datang {{ Auth::user()->name }} ! 
+                <a class="fa-solid fa-user btn mb-2" href="logout" role="button"></a>
+            </div>
+                <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
@@ -63,11 +65,15 @@
                             <div class="col-md-6">
                                 <label for="floatingInput">Keterangan</label>
                                 <textarea type="text" class="form-control mt-2" name="deskripsi">{{ $detail_pendampingan->keterangan }}</textarea>
+                                
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        <a href="{{ url('list') }}" class="btn btn-primary mt-3">Kembali</a>
+                     </form>
+                    </div>
+                
+                 </div>
+             </div>
+         </div>
     </div>
 @endsection

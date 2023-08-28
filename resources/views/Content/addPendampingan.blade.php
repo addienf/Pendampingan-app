@@ -1,20 +1,23 @@
 @extends('Layout.layout')
 @section('content')
-    <div class="container w-50 mt-3">
-        <div class = "h1">Add Pendampingan Page</div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
+<div class="body">
+    <div class = "container">
+        <div class="card">
+        <div class="container w-50 mt-3">
+            <div class = "h1">Add Pendampingan Page</div>
+            <nav aria-label="breadcrumb">
+             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
-            </ol>
-        </nav>
-        <form action="add" method="post">
-            {{ csrf_field() }}
-            <div class="mb-3">
-                <label for="floatingInput">Nama Aplikasi</label>
-                <input type="text" class="form-control mt-2" name="nama_aplikasi">
-            </div>
-            <div class="mb-3">
+                </ol>
+            </nav>
+                <form action="add" method="post">
+                {{ csrf_field() }}
+                <div class="mb-3">
+                    <label for="floatingInput">Nama Aplikasi</label>
+                    <input type="text" class="form-control mt-2" name="nama_aplikasi">
+                </div>
+                    <div class="mb-3">
                 <label for="floatingInput">Perangkat Daerah</label>
                 <select name="id_perangkat_daerah" class="form-select">
                     @foreach ($perangkat_daerah as $pay)
@@ -52,8 +55,11 @@
                 <label for="floatingInput">Spesifikasi</label>
                 <textarea type="text" class="form-control mt-2" name="spesifikasi"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary col-12 mt-2">Submit</button>
-        </form>
+              <div class="d-grid gap-2 d-md-block">
+                <button type="submit" class="btn btn-primary col-12 mt-2">Submit</button>
+            </form>
+        </div>
+        </div>
     </div>
-    </div>
+</div>
 @endsection

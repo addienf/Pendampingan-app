@@ -2,23 +2,22 @@
 @section('content')
     <div class="body">
         <div class="container">
-
-            <div class="header">
-                <h1>Selamat Datang {{ Auth::user()->name }} ! <a class="btn btn-primary" href="logout"
-                        role="button">Logout</a>
-                </h1>
-            </div>
-            <div class="card">
-                <div class="container w-75 mt-5">
-                    <h1>Data Detail Pendampingan</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+            {{-- <div class="card"> --}}
+                <div class  = "header-kanan justify-content-md-end mr-3 ">
+                    <div class="h1">Selamat Datang {{ Auth::user()->name }} ! 
+                    </div>
+                    <a class="fa-solid fa-user btn mb-2" href="logout" role="button"></a>
+                </div>
+                    <div class="card table-card">
+                    <table class="table align-middle text-center">
+                            <div class = "h1"  >Data Detail Pendampingan</div>
+                                <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
                         </ol>
                     </nav>
-                    <a href="{{ 'addDt/' . $pendampingan->id }}" class="btn btn-primary col-12 my-3">Tambah Data
+                    <a href="{{ 'addDt/' . $pendampingan->id }}" class="btn btn-primary col-3 mp-3 mb-3 mx3">Tambah Data
                         Pendampingan</a>
-                    <table class="table align-middle text-center">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -56,7 +55,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection
