@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="header">
                     <div class="header-kiri">
-                        <h1>Data Aplikasi</h1>
+                        <div class="h1">Data Aplikasi</div>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
@@ -14,8 +14,7 @@
                         </nav>
                     </div>
                     <div class="header-kanan">
-                        <i class="fa-regular fa-circle-user"></i>
-                        <a class="btn btn-primary" href="logout" role="button">Logout</a>
+                        <a class="fa-regular fa-circle-user btn btn-primary" href="logout" role="button">Logout</a>
                     </div>
                 </div>
                 <div class="btn-add">

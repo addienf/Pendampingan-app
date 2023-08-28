@@ -1,9 +1,7 @@
 @extends('Layout.layout')
 @section('content')
-    {{-- @include('Component.sidebar') --}}
-    {{-- <div class="cardSidebar"> --}}
     <div class="container w-50 mt-5">
-        <h1>Edit Pendampingan Page</h1>
+        <div class="h1">Edit Pendampingan Page</div>
         <form action="{{ url('list', $pendampingan->id) }}" method="post">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
@@ -58,6 +56,5 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="{{ url('list') }}" class="btn btn-primary">Home</a>
         </form>
-        {{-- </div>
-    </div> --}}
-    @endsection
+    </div>
+@endsection

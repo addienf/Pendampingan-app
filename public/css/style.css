@@ -1,6 +1,7 @@
 /* Login */
 .body{
 	font-family: 'Roboto', sans-serif;
+	font-size: 50;
 	margin: 0;
 	padding: 0;
 	background-color: #fff;
@@ -13,7 +14,7 @@
 	flex: 1;
     justify-content: flex-start;
     align-items: center;
-	background-color: ;
+	background-color:none ;
 }
 .card-kanan{
 	display: flex;
@@ -119,6 +120,45 @@
 	display: grid;
 	justify-content: flex-end;
 	align-items: center;
+}
+
+.btn:hover{
+	background: #16A75C;
+	border: none;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn:after {
+	content: "";
+	background: #f1f1f1;
+	display: block;
+	position: absolute;
+	padding-top: 300%;
+	padding-left: 350%;
+	margin-left: -20px !important;
+	margin-top: -120%;
+	opacity: 0;
+	transition: all 0.8s
+  }
+  
+  .btn:active:after {
+	padding: 0;
+	margin: 0;
+	opacity: 1;
+	transition: 0s
+  }
+  .btn {
+	position: relative;
+	border: none;
+	text-align: center;
+	transition-duration: 0.4s;
+	text-decoration: none;
+	overflow: hidden;
+	cursor: pointer;
+	border-radius: 5px;
+  }
+.h1{
+	font-size: 25px;
 }
 
 /* ---------------------------------------------------

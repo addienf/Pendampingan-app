@@ -1,7 +1,7 @@
 @extends('Layout.layout')
 @section('content')
     <div class="container w-50 mt-3">
-        <h1>Add Pendampingan Page</h1>
+        <div class = "h1">Add Pendampingan Page</div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>

@@ -1,7 +1,7 @@
 @extends('Layout.layout')
 @section('content')
     <div class="container w-75 mt-5">
-        <h1>Selamat Datang {{ Auth::user()->name }} ! <a class="btn btn-primary" href="logout" role="button">Logout</a> </h1>
+        <div>Selamat Datang {{ Auth::user()->name }} ! <a class="btn btn-primary" href="logout" role="button">Logout</a></div>
         <div class="container w-100 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -68,7 +68,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

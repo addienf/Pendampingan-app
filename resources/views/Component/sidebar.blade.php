@@ -5,7 +5,7 @@
         </div>
         <ul class="list-unstyled components">
             <p>Dummy Heading</p>
-            <li class="active">
+            <li class="">
                 <a>Dashboard</a>
             </li>
             <li>

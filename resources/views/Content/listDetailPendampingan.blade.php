@@ -2,8 +2,8 @@
 @section('content')
     <div class="body">
         <div class="container">
-            {{-- <div class="card"> --}}
-            <div class="header kanan">
+
+            <div class="header">
                 <h1>Selamat Datang {{ Auth::user()->name }} ! <a class="btn btn-primary" href="logout"
                         role="button">Logout</a>
                 </h1>
