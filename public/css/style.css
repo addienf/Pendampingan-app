@@ -5,8 +5,8 @@
 	margin: 0;
 	padding: 0;
 	background-color: #fff;
-  	height: 93vh; /* Mengatur tinggi elemen body menjadi 100% viewport height */
-  	display: flex; /* Menggunakan flexbox untuk mengatur posisi konten */
+  	height: 93vh; 
+  	display: flex; 
   	flex-direction: column;
 }
 .card-kiri{
@@ -40,7 +40,7 @@
 	display: flex;
     justify-content: center;
     align-items: center;
-	height: 100vh;
+	height: 55vh;
 }
 .login-container .login-form{
 	z-index: 2;
@@ -80,16 +80,18 @@
 
 /* Content Container */
 .card{
-	
 	border-radius: 10px;
 	width: 1125px;
 	height: 93vh;
 	padding: 10px 10px;
 	background-color: none;
+	border-color: #252525;
 }
+
 .table{
 	border-color: #252525;
 }
+
 .header{
 	display: flex;
 	justify-content: space-between;
@@ -97,11 +99,13 @@
 	padding-top: 27px;
 	background-color: none;
 }
-/* .header-kiri{
 
-} */
+.header-kiri{
+	display: grid;
+}
+
 .header-kanan{
-	display: flex;
+	display: grid;
 }
 .card .table-card{
 	border-color: #252525;
@@ -236,35 +240,19 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-/* 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
+.dashboard{
+	display: flex;
+	flex-direction: row;
+	margin-left: 10px;
 }
 
-ul.CTAs {
-    padding: 20px;
+.dashboard i{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	margin-right: 5px;
 }
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
-
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-} */
 
 .pendampingan{
 	display: flex;

@@ -4,9 +4,11 @@
             <h3><img src="{{ asset('img\logodiskominfo.png') }}" alt="Card Kiri"></h3>
         </div>
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
-            <li class="">
-                <a>Dashboard</a>
+            <li>
+                <div class="dashboard">
+                    <i class="fa-solid fa-bars text-center d-flex align-center"></i><a
+                        href="{{ url('list') }}">Dashboard</a>
+                </div>
             </li>
             <li>
                 <div class="pendampingan">
@@ -19,11 +21,6 @@
                     <i class="fa-solid fa-chart-simple text-center d-flex align-center"></i><a
                         href="{{ url('register') }}">Tambah User</a>
                 </div>
-            </li>
-        </ul>
-        <ul class="list-unstyled CTAs">
-            <li>
-                <a class="btn btn-primary" href="logout" role="button">Logout</a>
             </li>
         </ul>
     </nav>

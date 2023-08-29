@@ -22,17 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/detail', function () {
-    return view('Content.addDetailPendampingan');
-});
-
 Route::get('/login', function () {
     return view('Content.loginPage');
 })->name('login')->middleware('guest');
 
 Route::get('/register', function () {
     return view('Content.registerPage');
-})->middleware('guest');
+});
 
 Route::post('/post-register', [RegisterController::class, 'store']);
 Route::post('/post-login', [AuthController::class, 'postLogin']);
@@ -54,13 +50,9 @@ Route::post('/addPD', [PerangkatDaerahController::class, 'store']);
 // Detail Pendampingan
 Route::get('/listDetail', [DetailPendampinganController::class, 'index']);
 Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
-Route::get('/detailAplikasi/{id_pendampingan}/{id}', [DetailPendampinganController::class, 'edit']);
+Route::get('/detailAplikasi/{id_pendampingan}/{deskripsi}/{id}', [DetailPendampinganController::class, 'edit']);
 Route::get('/detailAplikasi/{id}', [DetailPendampinganController::class, 'homeDetail']);
+Route::get('/download/{filename}', [DetailPendampinganController::class, 'download'])->name('download.file');
 Route::get('listDetail/addDt/{id}', [DetailPendampinganController::class, 'create']);
 Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store2']);
-
-// Route::get('/add', [PendampinganController::class, 'create']);
-// Route::post('/add', [PendampinganController::class, 'store']);
-// Route::get('/edit/{id}', [PendampinganController::class, 'edit']);
-// Route::patch('/list/{id}', [PendampinganController::class, 'update']);
-// Route::delete('/list/{id}', [PendampinganController::class, 'destroy']);
+Route::delete('/listDetail/{desc}', [DetailPendampinganController::class, 'destroy']);

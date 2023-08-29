@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\DetailPendampingan;
 use App\Models\Pendampingan;
-use App\Models\PerangkatDaerah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -26,8 +25,9 @@ class DetailPendampinganController extends Controller
             ->select('detail_pendampingan.*', 'pendampingan.nama_aplikasi')
             ->where('pendampingan.id', $id)
             ->get();
+        $uniqueData['detail_pendampingan'] = $data['detail_pendampingan']->unique('keterangan');
         $data2['pendampingan'] = Pendampingan::find($id);
-        return view('Content.listDetailPendampingan', $data, $data2);
+        return view('Content.listDetailPendampingan', $uniqueData, $data2);
     }
 
     public function create($id)
@@ -44,21 +44,14 @@ class DetailPendampinganController extends Controller
         return redirect('list');
     }
 
-    public function edit($id, $id2)
+    public function edit($id, $desc, $id2)
     {
-        $data['pendampingan'] = Pendampingan::find($id);
-        $data2['detail_pendampingan'] = DetailPendampingan::find($id2);
-        return view('Content.DetailPendampingan', $data, $data2);
-    }
-
-    public function store1(Request $request)
-    {
-        $requestData = $request->all();
-        $filename = time() . $request->file('upload_file')->getClientOriginalName();
-        $path = $request->file('upload_file')->storeAs('images', $filename, 'public');
-        $requestData["upload_file"] = '/storage/' . $path;
-        DetailPendampingan::create($requestData);
-        return redirect('list');
+        $pendampingan = Pendampingan::find($id);
+        $detail_pendampingan = DetailPendampingan::find($id2);
+        $desc1 = DetailPendampingan::where('deskripsi', $desc)->get();
+        $dt = $desc1->pluck('upload_file')->implode(', ');
+        $dtArray = explode(', ', $dt);
+        return view('Content.DetailPendampingan', compact('pendampingan', 'detail_pendampingan', 'dtArray'));
     }
 
     public function store2(Request $request)
@@ -70,10 +63,8 @@ class DetailPendampinganController extends Controller
 
         if ($request->upload_file) {
             foreach ($request->upload_file as $file) {
-                $i = 0;
-
                 $fileName = $file->getClientOriginalName();
-                $filePath = 'uploads/' . uniqid() . $fileName;
+                $filePath = 'uploads/' . $fileName;
                 $path = Storage::disk('public')->put($filePath, file_get_contents($file));
                 $path = Storage::disk('public')->url($path);
                 // // Create files
@@ -82,7 +73,7 @@ class DetailPendampinganController extends Controller
                     'tanggal' => $request->tanggal,
                     'deskripsi' => $request->deskripsi,
                     'keterangan' => $request->keterangan,
-                    'upload_file' => $filePath
+                    'upload_file' => $fileName
                 ]);
             }
         }
@@ -95,5 +86,19 @@ class DetailPendampinganController extends Controller
         $id2 = DB::table('detail_pendampingan')->latest('created_at')->first();
         $data2['detail_pendampingan'] = DetailPendampingan::find($id2->id);
         return view('Content.DetailPendampingan', $data, $data2);
+    }
+    public function download($filename)
+    {
+        $pathToFile = storage_path('app\public\uploads/' . $filename);
+        return Response()->download($pathToFile);
+    }
+
+    public function destroy($desc)
+    {
+        $detail = DetailPendampingan::where('deskripsi', $desc)->delete();
+        if ($detail) {
+            Storage::delete($detail->upload_file);
+        }
+        return redirect('list');
     }
 }

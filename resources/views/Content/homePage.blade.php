@@ -14,9 +14,9 @@
                         </nav>
                     </div>
                     <div class="header-kanan">
-                      
-                            <a class="btn fa-solid fa-user " href="logout" role="button">Logout</a>
-                        
+                        <div class="h1">Selamat Datang {{ Auth::user()->name }} !
+                        </div>
+                        <a class="btn" href="logout" role="button">Sign Out</a>
                     </div>
                 </div>
                 <div class="btn-add">
@@ -31,7 +31,7 @@
                                 <th>Perangkat Daerah</th>
                                 <th>Status Aplikasi</th>
                                 <th>Status Rekomendasi</th>
-                                <th>Tanggal</th>
+                                {{-- <th>Tanggal</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,7 +43,7 @@
                                     <td>{{ $list['nama_perangkat_daerah'] }}</td>
                                     <td>{{ $list['status_aplikasi'] }}</td>
                                     <td>{{ $list['status_rekomendasi'] }}</td>
-                                    <td>{{ $list['tanggal'] }}</td>
+                                    {{-- <td>{{ $list['tanggal'] }}</td> --}}
                                     <td>
                                         <form action="{{ url('list', $list->id) }}" method="post">
                                             {{ csrf_field() }}
