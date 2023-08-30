@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('Content.loginPage');
 })->name('login')->middleware('guest');
 

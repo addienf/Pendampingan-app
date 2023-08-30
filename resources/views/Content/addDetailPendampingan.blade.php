@@ -25,29 +25,55 @@
                 <div class="card table-card mt-2">
                     <form action="addDt" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="mb-3">
                             <label for="floatingInput">ID Pendampingan</label>
-                            <input type="text" class="form-control mt-2" name="id_pendampingan"
-                                value="{{ $pendampingan->id }}">
+                            <input type="text" class="form-control mt-2 @error('id_pendampingan') is-invalid @enderror"
+                                name="id_pendampingan" value="{{ $pendampingan->id }}">
+                            @error('id_pendampingan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="floatingInput">Harap Isi Tanggal Pendampingan</label>
-                            <input type="date" class="form-control mt-2" name="tanggal">
+                            <input type="date" class="form-control mt-2 @error('tanggal') is-invalid @enderror"
+                                name="tanggal">
+                            @error('tanggal')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="row g-2">
                             <div class="col-md-6">
                                 <label for="floatingInput">Isi Deskripsi</label>
-                                <textarea type="text" class="form-control mt-2" name="deskripsi"></textarea>
+                                <textarea type="text" class="form-control mt-2 @error('deskripsi') is-invalid @enderror" name="deskripsi"></textarea>
+                                @error('deskripsi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="col-md-6">
                                 <label for="floatingInput">Upload File Pendukung</label>
-                                <input type="file" class="form-control mt-2" name="upload_file[]" multiple="true">
+                                <input type="file" class="form-control mt-2 @error('upload_file[]') is-invalid @enderror"
+                                    name="upload_file[]" multiple="true">
+                                @error('upload_file[]')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row g-2">
                             <div class="col-md-12 mb-3">
                                 <label for="floatingInput">Isi Keterangan</label>
-                                <textarea type="text" class="form-control mt-2" name="keterangan"></textarea>
+                                <textarea type="text" class="form-control mt-2 @error('keterangan') is-invalid @enderror" name="keterangan"></textarea>
+                                @error('keterangan')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary col-md-12">Submit</button>
                         </div>

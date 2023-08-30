@@ -14,14 +14,17 @@ class RegisterController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'min:5|required',
-            'g-recaptcha-response' => 'required'
+            'level' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
         ];
         $this->validate($request, $rules, [
             'name.required' => 'Name is required',
             'email.required' => 'Email is required',
             'password.required' => 'Password is required',
             'password.min' => 'Password should be minimum 5 length',
+            'level.required' => 'Please select a valid role',
             'g-recaptcha-response.required' => 'Please complete reCaptcha',
+            'g-recaptcha-response.captcha' => 'Invalid reCaptcha'
         ]);
 
         $input = $request->all();

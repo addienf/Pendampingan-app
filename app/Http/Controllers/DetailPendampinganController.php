@@ -39,8 +39,23 @@ class DetailPendampinganController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'id_pendampingan' => 'required',
+            'tanggal' => 'required',
+            'deskripsi' => 'required',
+            'upload_file[]' => 'required',
+            'keterangan' => 'required'
+        ];
+        $this->validate($request, $rules, [
+            'id_pendampingan.required' => 'Id Pendampingan is required',
+            'tanggal.required' => 'Tanggal is required',
+            'deskripsi.required' => 'Deskripsi is required',
+            'upload_file[].required' => 'Please insert file',
+            'keterangan.required' => 'Keterangan is required',
+        ]);
         $input = $request->all();
         DetailPendampingan::create($input);
+        session()->flash('success', 'Data telah berhasil disimpan.');
         return redirect('list');
     }
 

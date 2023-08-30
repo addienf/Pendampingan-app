@@ -87,11 +87,25 @@
 	background-color: none;
 	border-color: #252525;
 }
-
 .table{
 	border-color: #252525;
 }
-
+.register-header{
+	position: sticky;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40%;
+}
+.register-header i{
+	font-size: 184px;
+}
+.h1-regis{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+}
 .header{
 	display: flex;
 	justify-content: space-between;
@@ -99,11 +113,9 @@
 	padding-top: 27px;
 	background-color: none;
 }
-
 .header-kiri{
 	display: grid;
 }
-
 .header-kanan{
 	display: grid;
 }
@@ -125,13 +137,11 @@
 	justify-content: flex-end;
 	align-items: center;
 }
-
 .btn:hover{
 	background: #16A75C;
 	border: none;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-
 .btn:after {
 	content: "";
 	background: #f1f1f1;
@@ -182,6 +192,22 @@
 	border-radius: 50%;
   }
 
+.form{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input-form{
+	margin-top: 37px;
+	width: 75%;
+}
+
+.btn-submit{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
