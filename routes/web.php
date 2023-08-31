@@ -35,24 +35,30 @@ Route::post('/post-login', [AuthController::class, 'postLogin']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 // Pendampingan
-Route::get('/list', [PendampinganController::class, 'index']);
-Route::get('/add', [PendampinganController::class, 'create']);
-Route::post('/add', [PendampinganController::class, 'store']);
-Route::get('/edit/{id}', [PendampinganController::class, 'edit']);
-Route::patch('/list/{id}', [PendampinganController::class, 'update']);
-Route::delete('/list/{id}', [PendampinganController::class, 'destroy']);
+Route::group(['middleware' => ['auth', 'rolecek:user,admin']], function () {
+    Route::get('/list', [PendampinganController::class, 'index']);
+});
 
-// Perangkat Daerah
-Route::get('/listPD', [PerangkatDaerahController::class, 'index']);
-Route::get('/addPD', [PerangkatDaerahController::class, 'create']);
-Route::post('/addPD', [PerangkatDaerahController::class, 'store']);
+Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
+    // Route::get('/list', [PendampinganController::class, 'index']);
+    Route::get('/add', [PendampinganController::class, 'create']);
+    Route::post('/add', [PendampinganController::class, 'store']);
+    Route::get('/edit/{id}', [PendampinganController::class, 'edit']);
+    Route::patch('/list/{id}', [PendampinganController::class, 'update']);
+    Route::delete('/list/{id}', [PendampinganController::class, 'destroy']);
 
-// Detail Pendampingan
-Route::get('/listDetail', [DetailPendampinganController::class, 'index']);
-Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
-Route::get('/detailAplikasi/{id_pendampingan}/{deskripsi}/{id}', [DetailPendampinganController::class, 'edit']);
-Route::get('/detailAplikasi/{id}', [DetailPendampinganController::class, 'homeDetail']);
-Route::get('/download/{filename}', [DetailPendampinganController::class, 'download'])->name('download.file');
-Route::get('listDetail/addDt/{id}', [DetailPendampinganController::class, 'create']);
-Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store2']);
-Route::delete('/listDetail/{desc}', [DetailPendampinganController::class, 'destroy']);
+    // Perangkat Daerah
+    Route::get('/listPD', [PerangkatDaerahController::class, 'index']);
+    Route::get('/addPD', [PerangkatDaerahController::class, 'create']);
+    Route::post('/addPD', [PerangkatDaerahController::class, 'store']);
+
+    // Detail Pendampingan
+    Route::get('/listDetail', [DetailPendampinganController::class, 'index']);
+    Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
+    Route::get('/detailAplikasi/{id_pendampingan}/{deskripsi}/{id}', [DetailPendampinganController::class, 'edit']);
+    Route::get('/detailAplikasi/{id}', [DetailPendampinganController::class, 'homeDetail']);
+    Route::get('/download/{filename}', [DetailPendampinganController::class, 'download'])->name('download.file');
+    Route::get('listDetail/addDt/{id}', [DetailPendampinganController::class, 'create']);
+    Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store2']);
+    Route::delete('/listDetail/{desc}', [DetailPendampinganController::class, 'destroy']);
+});

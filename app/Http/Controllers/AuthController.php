@@ -19,7 +19,7 @@ class AuthController extends Controller
             $request->session('')->regenerate();
 
             if (Auth::user()->level == 'admin') {
-                return redirect()->intended('dashboard-item');
+                return redirect()->intended('list');
             } elseif (Auth::user()->level == 'user') {
                 return redirect()->intended('list');
             }
