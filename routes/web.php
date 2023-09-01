@@ -5,6 +5,7 @@ use App\Http\Controllers\DetailPendampinganController;
 use App\Http\Controllers\PendampinganController;
 use App\Http\Controllers\PerangkatDaerahController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,4 +62,12 @@ Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
     Route::get('listDetail/addDt/{id}', [DetailPendampinganController::class, 'create']);
     Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store2']);
     Route::delete('/listDetail/{desc}', [DetailPendampinganController::class, 'destroy']);
+
+    // User
+    Route::get('/listUser', [UserController::class, 'index']);
+    Route::get('/addUser', [UserController::class, 'create']);
+    Route::post('/addUser', [UserController::class, 'store']);
+    Route::get('/editUser/{id}', [UserController::class, 'edit']);
+    Route::patch('/listUser/{id}', [UserController::class, 'update']);
+    Route::delete('/listUser/{id}', [UserController::class, 'destroy']);
 });
