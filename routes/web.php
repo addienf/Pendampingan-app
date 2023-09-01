@@ -37,6 +37,10 @@ Route::get('/logout', [AuthController::class, 'logout']);
 // Pendampingan
 Route::group(['middleware' => ['auth', 'rolecek:user,admin']], function () {
     Route::get('/list', [PendampinganController::class, 'index']);
+    Route::get('/listDetail', [DetailPendampinganController::class, 'index']);
+    Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
+    Route::get('/detailAplikasi/{id_pendampingan}/{deskripsi}/{id}', [DetailPendampinganController::class, 'edit']);
+    Route::get('/detailAplikasi/{id}', [DetailPendampinganController::class, 'homeDetail']);
 });
 
 Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
@@ -53,10 +57,6 @@ Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
     Route::post('/addPD', [PerangkatDaerahController::class, 'store']);
 
     // Detail Pendampingan
-    Route::get('/listDetail', [DetailPendampinganController::class, 'index']);
-    Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
-    Route::get('/detailAplikasi/{id_pendampingan}/{deskripsi}/{id}', [DetailPendampinganController::class, 'edit']);
-    Route::get('/detailAplikasi/{id}', [DetailPendampinganController::class, 'homeDetail']);
     Route::get('/download/{filename}', [DetailPendampinganController::class, 'download'])->name('download.file');
     Route::get('listDetail/addDt/{id}', [DetailPendampinganController::class, 'create']);
     Route::post('listDetail/addDt/{id}', [DetailPendampinganController::class, 'store2']);
