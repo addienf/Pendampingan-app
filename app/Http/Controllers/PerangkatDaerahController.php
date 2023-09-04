@@ -24,4 +24,17 @@ class PerangkatDaerahController extends Controller
         PerangkatDaerah::create($input);
         return redirect('listPD');
     }
+
+    public function edit($id)
+    {
+        $data['perangkat_daerah'] = PerangkatDaerah::find($id);
+        return view('Content.editPerangkatDaerah', $data);
+    }
+
+    public function update($id, Request $request)
+    {
+        $input = $request->all();
+        PerangkatDaerah::find($id)->update($input);
+        return redirect('listPD');
+    }
 }

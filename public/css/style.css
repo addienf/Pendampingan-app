@@ -308,6 +308,20 @@ a[data-toggle="collapse"] {
 	margin-right: 13px;
 }
 
+.perangkat-daerah{
+	display: flex;
+	flex-direction: row;
+	margin-left: 10px;
+}
+
+.perangkat-daerah i{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	margin-right: 13px;
+}
+
 a{
 	text-decoration: none;
 }

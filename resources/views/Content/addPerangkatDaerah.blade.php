@@ -6,15 +6,6 @@
                 <div class="header">
                     <div class="header-kiri">
                         <div class="h1">Add Perangkat Daerah</div>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                                <li class="breadcrumb-item"><a href="{{ url('add') }}">Tambah Data</a></li>
-                                <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
-                                <li class="breadcrumb-item"><a href="{{ url('listDetail') }}">Detail Pendampingan</a>
-                                </li>
-                            </ol>
-                        </nav>
                     </div>
                     <div class="header-kanan">
                         <div class="h1">Selamat Datang {{ Auth::user()->name }} !
@@ -42,14 +33,22 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Perangkat Daerah</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <input type="text" class="d-none" value="{{ $current_date = date('Y-m-d') }}">
                             @foreach ($data as $list)
                                 <tr>
                                     <td>{{ $list->id }}</td>
                                     <td>{{ $list->nama_perangkat_daerah }}</td>
+                                    <td>
+                                        <form action="{{ url('listPD', $list->id) }}" method="post">
+                                            {{ csrf_field() }}
+                                            {{ method_field('delete') }}
+                                            <a href="{{ 'editPD/' . $list->id }}" class="btn btn-light"><i
+                                                    class="fa-solid fa-pen mx-2"></i></a>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

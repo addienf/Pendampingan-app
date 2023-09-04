@@ -22,6 +22,12 @@
                         href="{{ url('listUser') }}">Tambah User</a>
                 </div>
             </li>
+            <li>
+                <div class="perangkat-daerah">
+                    <i class="fa-solid fa-landmark text-center d-flex align-center"></i><a
+                        href="{{ url('listPD') }}">Perangkat Daerah</a>
+                </div>
+            </li>
         </ul>
     </nav>
 </div>

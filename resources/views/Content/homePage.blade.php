@@ -6,12 +6,6 @@
                 <div class="header">
                     <div class="header-kiri">
                         <div class="h1">Data Aplikasi</div>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                                <li class="breadcrumb-item"><a href="{{ url('listPD') }}">Perangkat Daerah</a></li>
-                            </ol>
-                        </nav>
                     </div>
                     <div class="header-kanan">
                         <div class="h1">Selamat Datang {{ Auth::user()->name }} !
@@ -31,7 +25,6 @@
                                 <th>Perangkat Daerah</th>
                                 <th>Status Aplikasi</th>
                                 <th>Status Rekomendasi</th>
-                                {{-- <th>Tanggal</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -43,7 +36,6 @@
                                     <td>{{ $list['nama_perangkat_daerah'] }}</td>
                                     <td>{{ $list['status_aplikasi'] }}</td>
                                     <td>{{ $list['status_rekomendasi'] }}</td>
-                                    {{-- <td>{{ $list['tanggal'] }}</td> --}}
                                     <td>
                                         <form action="{{ url('list', $list->id) }}" method="post">
                                             {{ csrf_field() }}

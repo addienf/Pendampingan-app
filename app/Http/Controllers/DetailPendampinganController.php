@@ -69,6 +69,7 @@ class DetailPendampinganController extends Controller
         return view('Content.DetailPendampingan', compact('pendampingan', 'detail_pendampingan', 'dtArray'));
     }
 
+
     public function store2(Request $request)
     {
         $request->validate([
@@ -100,7 +101,7 @@ class DetailPendampinganController extends Controller
         $data['pendampingan'] = Pendampingan::find($id);
         $id2 = DB::table('detail_pendampingan')->latest('created_at')->first();
         $data2['detail_pendampingan'] = DetailPendampingan::find($id2->id);
-        return view('Content.DetailPendampingan', $data, $data2);
+        return view('Content.Detail', $data, $data2);
     }
     public function download($filename)
     {

@@ -13,13 +13,6 @@ class PendampinganController extends Controller
     //
     public function index()
     {
-        // $id2 = DB::table('detail_pendampingan')->latest('created_at')->first();
-        // $data['pendampingan'] = Pendampingan::join('perangkat_daerah', 'pendampingan.id_perangkat_daerah', '=', 'perangkat_daerah.id_perangkat_daerah')
-        //     ->join('detail_pendampingan', 'detail_pendampingan.id_pendampingan', '=', 'pendampingan.id')
-        //     ->select('pendampingan.*', 'perangkat_daerah.nama_perangkat_daerah', 'detail_pendampingan.tanggal')
-        //     ->where('detail_pendampingan.tanggal', $id2->tanggal)
-        //     ->orderBy('pendampingan.id', 'asc')
-        //     ->get();
         $data['pendampingan'] = Pendampingan::join('perangkat_daerah', 'pendampingan.id_perangkat_daerah', '=', 'perangkat_daerah.id_perangkat_daerah')
             ->select('pendampingan.*', 'perangkat_daerah.nama_perangkat_daerah')
             ->orderBy('pendampingan.id', 'asc')

@@ -45,7 +45,6 @@ Route::group(['middleware' => ['auth', 'rolecek:user,admin']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
-    // Route::get('/list', [PendampinganController::class, 'index']);
     Route::get('/add', [PendampinganController::class, 'create']);
     Route::post('/add', [PendampinganController::class, 'store']);
     Route::get('/edit/{id}', [PendampinganController::class, 'edit']);
@@ -56,6 +55,8 @@ Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
     Route::get('/listPD', [PerangkatDaerahController::class, 'index']);
     Route::get('/addPD', [PerangkatDaerahController::class, 'create']);
     Route::post('/addPD', [PerangkatDaerahController::class, 'store']);
+    Route::get('/editPD/{id}', [PerangkatDaerahController::class, 'edit']);
+    Route::patch('/listPD/{id}', [PerangkatDaerahController::class, 'update']);
 
     // Detail Pendampingan
     Route::get('/download/{filename}', [DetailPendampinganController::class, 'download'])->name('download.file');
