@@ -28,7 +28,7 @@
                     </form>
                 </div>
                 <div class="card table-card mt-2">
-                    <table class="table align-middle text-center">
+                    <table class="table align-middle text-center stripe" id="myTable">
                         <thead>
                             <tr>
                                 <th>No</th>

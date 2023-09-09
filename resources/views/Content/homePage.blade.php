@@ -2,7 +2,7 @@
 @section('content')
     <div class="body">
         <div class="container">
-            <div class="card">
+            {{-- <div class="card"> --}}
                 <div class="header">
                     <div class="header-kiri">
                         <div class="h1">Data Aplikasi</div>
@@ -17,7 +17,7 @@
                     <a href="{{ url('add') }}" class="btn btn-primary col-12 my-3">Tambah Data Aplikasi</a>
                 </div>
                 <div class="card table-card">
-                    <table class="table align-middle text-center table-bordered">
+                    <table class="table table-stripped text-center hover stripe" id="myTable">
                         <thead>
                             <tr>
                                 <th>No</th>

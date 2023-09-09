@@ -23,7 +23,7 @@
                         Pendampingan</a>
                 </div>
                 <div class="card w-100">
-                    <table class="table align-middle text-center">
+                    <table class="table align-middle text-center stripe hover" id="myTable">
                         <thead>
                             <tr>
                                 <th>No</th>

@@ -11,6 +11,9 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <link rel="stylesheet" href="{{ asset('css\style.css') }}">
+    <link href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css " rel="stylesheet">
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet">
+    <link href="DataTables/datatables.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,5 +32,21 @@
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="https://kit.fontawesome.com/45b63b14b4.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.js"></script>
+<script src="DataTables/datatables.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+// let table = new DataTable('#myTable');
+</script>
 
+{{-- <script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+</script>
+     --}}
+{{-- <script src="{{ asset('public\main.js')}}"></script> --}}
 </html>
