@@ -21,7 +21,7 @@
                 <div class="btn-add">
                     <a href="{{ url('register') }}" class="btn btn-primary col-12 my-3">Tambah Data User</a>
                 </div>
-                {{-- <div class="card w-100"> --}}
+                <div class="card w-100">
                     <table class="table table-stripped align-middle text-center stripe" id="myTable">
                         <thead>
                             <tr>

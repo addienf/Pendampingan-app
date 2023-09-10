@@ -2,7 +2,7 @@
 @section('content')
     <div class="body">
         <div class="container">
-            {{-- <div class="card"> --}}
+            <div class="card">
                 <div class="header">
                     <div class="header-kiri">
                         <div class="h1">Data Aplikasi</div>
