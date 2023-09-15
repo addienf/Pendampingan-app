@@ -119,6 +119,13 @@
 .header-kanan{
 	display: grid;
 }
+
+.btn-kanan{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .card .table-card{
 	border-color: #252525;
 	height: 100%;

@@ -27,11 +27,6 @@ Route::get('/', function () {
     return view('Content.loginPage');
 })->name('login')->middleware('guest');
 
-Route::get('/register', function () {
-    return view('Content.registerPage');
-});
-
-Route::post('/post-register', [RegisterController::class, 'store']);
 Route::post('/post-login', [AuthController::class, 'postLogin']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
@@ -42,9 +37,17 @@ Route::group(['middleware' => ['auth', 'rolecek:user,admin']], function () {
     Route::get('/listDetail/{id}', [DetailPendampinganController::class, 'detailbyID']);
     Route::get('/detailAplikasi/{id_pendampingan}/{deskripsi}/{id}', [DetailPendampinganController::class, 'edit']);
     Route::get('/detailAplikasi/{id}', [DetailPendampinganController::class, 'homeDetail']);
+    Route::get('/editUser/{id}', [UserController::class, 'edit']);
+    Route::patch('/listUser/{id}', [UserController::class, 'update']);
 });
 
 Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
+    Route::get('/register', function () {
+        return view('Content.registerPage');
+    });
+
+    Route::post('/post-register', [RegisterController::class, 'store']);
+
     Route::get('/add', [PendampinganController::class, 'create']);
     Route::post('/add', [PendampinganController::class, 'store']);
     Route::get('/edit/{id}', [PendampinganController::class, 'edit']);
@@ -68,7 +71,5 @@ Route::group(['middleware' => ['auth', 'rolecek:admin']], function () {
     Route::get('/listUser', [UserController::class, 'index']);
     Route::get('/addUser', [UserController::class, 'create']);
     Route::post('/addUser', [UserController::class, 'store']);
-    Route::get('/editUser/{id}', [UserController::class, 'edit']);
-    Route::patch('/listUser/{id}', [UserController::class, 'update']);
     Route::delete('/listUser/{id}', [UserController::class, 'destroy']);
 });

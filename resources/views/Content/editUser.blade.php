@@ -10,7 +10,11 @@
                     <div class="header-kanan">
                         <div class="h1">Selamat Datang {{ Auth::user()->name }} !
                         </div>
-                        <a class="btn" href="logout" role="button">Sign Out</a>
+                        <div class="btn-kanan">
+                            <a class="btn" href="/logout" role="button">Sign Out</a>
+                            <a href="{{ url('editUser/' . Auth::user()->id) }}" class="btn btn-light"><i
+                                    class="fa-solid fa-user mx-2"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="card table-card mt-2">
@@ -18,25 +22,46 @@
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                         <input type="hidden" name="_method" value="PATCH">
-                        <div class="mb-3">
-                            <label for="floatingInput">id</label>
-                            <input type="text" class="form-control mt-2" name="nama_aplikasi"
-                                value="{{ $user->id }}">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Id</span>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                value="{{ $user->id }}" name="id" disabled>
                         </div>
-                        <div class="mb-3">
-                            <label for="floatingInput">Nama</label>
-                            <input type="text" class="form-control mt-2" name="nama_aplikasi"
-                                value="{{ $user->name }}">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Nama</span>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="basic-url"
+                                aria-describedby="basic-addon3" value="{{ $user->name }}" name="name">
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="row g-2 mb-2">
-                            <div class="col-md-8">
-                                <label for="floatingInput">Email</label>
-                                <input type="text" class="form-control mt-2" name="pic" value="{{ $user->email }}">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="floatingInput">Password</label>
-                                <input type="text" class="form-control mt-2" name="no_telp" value="">
-                            </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Usernama</span>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                value="{{ $user->username }}" name="username" disabled>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Email</span>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                value="{{ $user->email }}" name="email">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text @error('password') is-invalid @enderror"
+                                id="basic-addon3">Password</span>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                name="password">
+                            @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text @error('password_confirmation') is-invalid @enderror"
+                                id="basic-addon3">Confirm Password</span>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                name="password_confirmation" id="password_confirmation">
+                            @error('password_confirmation')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="d-grid gap-2 d-md-block">
                             <button type="submit" class="btn btn-primary col-12 mt-2">Submit</button>

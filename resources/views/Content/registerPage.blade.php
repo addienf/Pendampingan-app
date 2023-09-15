@@ -29,6 +29,14 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="floatingInput">Username</label>
+                                <input type="text" class="form-control mt-2 @error('username') is-invalid @enderror"
+                                    name="username">
+                                @error('username')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label for="floatingInput">Email</label>
                                 <input type="email" class="form-control mt-2 @error('email') is-invalid @enderror"
                                     name="email">

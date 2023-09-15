@@ -12,6 +12,7 @@ class RegisterController extends Controller
     {
         $rules = [
             'name' => 'required',
+            'username' => 'required',
             'email' => 'required',
             'password' => 'min:5|required',
             'level' => 'required',
@@ -19,6 +20,7 @@ class RegisterController extends Controller
         ];
         $this->validate($request, $rules, [
             'name.required' => 'Name is required',
+            'username.required' => 'Username is required',
             'email.required' => 'Email is required',
             'password.required' => 'Password is required',
             'password.min' => 'Password should be minimum 5 length',
@@ -31,6 +33,6 @@ class RegisterController extends Controller
         $input['password'] = "$password";
 
         User::create($input);
-        return redirect('/');
+        return redirect('/list');
     }
 }

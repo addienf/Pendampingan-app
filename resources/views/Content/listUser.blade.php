@@ -6,16 +6,15 @@
                 <div class="header">
                     <div class="header-kiri">
                         <div class="h1">Data User</div>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('list') }}">Home</a></li>
-                            </ol>
-                        </nav>
                     </div>
                     <div class="header-kanan">
                         <div class="h1">Selamat Datang {{ Auth::user()->name }} !
                         </div>
-                        <a class="btn" href="/logout" role="button">Sign Out</a>
+                        <div class="btn-kanan">
+                            <a class="btn" href="/logout" role="button">Sign Out</a>
+                            <a href="{{ url('editUser/' . Auth::user()->id) }}" class="btn btn-light"><i
+                                    class="fa-solid fa-user mx-2"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="btn-add">
@@ -47,10 +46,15 @@
                                         <form action="{{ url('listUser', $list->id) }}" method="post">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
-                                            <a href="{{ url('editUser/' . $list->id) }}" class="btn btn-light"><i
-                                                    class="fa-solid fa-eye mx-2"></i></a>
-                                            <button type="submit" onclick="return confirm('Are you sure?')"
-                                                class="btn btn-light"><i class="fa-solid fa-trash mx-2"></i></button>
+                                            @if (Auth::user()->level == 'admin')
+                                                <a href="{{ url('editUser/' . $list->id) }}" class="btn btn-light"><i
+                                                        class="fa-solid fa-pen mx-2"></i></a>
+                                                <button type="submit" onclick="return confirm('Are you sure?')"
+                                                    class="btn btn-light"><i class="fa-solid fa-trash mx-2"></i></button>
+                                            @else
+                                                <a href="{{ url('editUser/' . $list->id) }}" class="btn btn-light"><i
+                                                        class="fa-solid fa-pen mx-2"></i></a>
+                                            @endif
                                         </form>
                                     </td>
                                 </tr>

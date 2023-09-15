@@ -10,13 +10,19 @@
                     <div class="header-kanan">
                         <div class="h1">Selamat Datang {{ Auth::user()->name }} !
                         </div>
-                        <a class="btn" href="logout" role="button">Sign Out</a>
+                        <div class="btn-kanan">
+                            <a class="btn" href="/logout" role="button">Sign Out</a>
+                            <a href="{{ url('editUser/' . Auth::user()->id) }}" class="btn btn-light"><i
+                                    class="fa-solid fa-user mx-2"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="btn-add">
-                    <a href="{{ url('add') }}" class="btn btn-primary col-12 my-3">Tambah Data Aplikasi</a>
-                </div>
-                <div class="card table-card">
+                @if (Auth::user()->level == 'admin')
+                    <div class="btn-add">
+                        <a href="{{ url('add') }}" class="btn btn-primary col-12 my-3">Tambah Data Aplikasi</a>
+                    </div>
+                @endif
+                <div class="card table-card mt-3">
                     <table class="table table-stripped text-center hover stripe" id="myTable">
                         <thead>
                             <tr>
@@ -40,12 +46,18 @@
                                         <form action="{{ url('list', $list->id) }}" method="post">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
-                                            <a href="{{ 'edit/' . $list->id }}" class="btn btn-light"><i
-                                                    class="fa-solid fa-pen mx-2"></i></a>
-                                            <a href="{{ 'listDetail/' . $list->id }}" class="btn btn-light"><i
-                                                    class="fa-solid fa-eye mx-2"></i></a>
-                                            <button type="submit" onclick="return confirm('Are you sure?')"
-                                                class="btn btn-light"><i class="fa-solid fa-trash mx-2"></i></button>
+                                            @if (Auth::user()->level == 'admin')
+                                                <a href="{{ 'edit/' . $list->id }}" class="btn btn-light"><i
+                                                        class="fa-solid fa-pen mx-2"></i></a>
+                                                <a href="{{ 'listDetail/' . $list->id }}" class="btn btn-light"><i
+                                                        class="fa-solid fa-eye mx-2"></i></a>
+                                                <button type="submit" onclick="return confirm('Are you sure?')"
+                                                    class="btn btn-light"><i class="fa-solid fa-trash mx-2"></i></button>
+                                            @else
+                                                <a href="{{ 'listDetail/' . $list->id }}" class="btn btn-light"><i
+                                                        class="fa-solid fa-eye mx-2"></i></a>
+                                            @endif
+
                                         </form>
                                     </td>
                                 </tr>

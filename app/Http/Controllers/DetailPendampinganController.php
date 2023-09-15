@@ -99,9 +99,18 @@ class DetailPendampinganController extends Controller
     public function homeDetail($id)
     {
         $data['pendampingan'] = Pendampingan::find($id);
-        $id2 = DB::table('detail_pendampingan')->latest('created_at')->first();
-        $data2['detail_pendampingan'] = DetailPendampingan::find($id2->id);
-        return view('Content.Detail', $data, $data2);
+        $id2 = DB::table('detail_pendampingan')
+            ->where('id_pendampingan', $id)
+            ->latest('created_at')
+            ->value('id');
+
+        $data2['detail_pendampingan'] = DetailPendampingan::find($id2);
+
+        if (!$data2['detail_pendampingan']) {
+            return view('Content.Detail2');
+        } else {
+            return view('Content.Detail', $data, $data2);
+        }
     }
     public function download($filename)
     {

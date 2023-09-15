@@ -10,7 +10,11 @@
                     <div class="header-kanan">
                         <div class="h1">Selamat Datang {{ Auth::user()->name }} !
                         </div>
-                        <a class="btn" href="logout" role="button">Sign Out</a>
+                        <div class="btn-kanan">
+                            <a class="btn" href="/logout" role="button">Sign Out</a>
+                            <a href="{{ url('editUser/' . Auth::user()->id) }}" class="btn btn-light"><i
+                                    class="fa-solid fa-user mx-2"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="card table-card mt-2">

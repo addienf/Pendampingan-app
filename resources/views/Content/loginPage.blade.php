@@ -14,10 +14,10 @@
                             <h1>Selamat Datang!</h1>
                         </div>
                         <div>
-                            <label for="floatingInput">Email</label>
-                            <input type="email" class="email form-control mt-2 @error('email') is-invalid @enderror"
-                                name="email" placeholder="Email">
-                            @error('email')
+                            <label for="floatingInput">Username</label>
+                            <input type="text" class="email form-control mt-2 @error('username') is-invalid @enderror"
+                                name="username" placeholder="Username">
+                            @error('username')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>

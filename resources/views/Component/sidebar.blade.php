@@ -19,7 +19,7 @@
             <li>
                 <div class="tambah-user">
                     <i class="fa-solid fa-chart-simple text-center d-flex align-center"></i><a
-                        href="{{ url('listUser') }}">Tambah User</a>
+                        href="{{ url('listUser') }}">User</a>
                 </div>
             </li>
             <li>
