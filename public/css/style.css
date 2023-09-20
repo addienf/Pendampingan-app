@@ -80,15 +80,14 @@
 
 /* Content Container */
 .card{
-	border-radius: 10px;
-	width: 1125px;
+	border-radius: 5px;
+	width: 1500px;
 	height: 93vh;
-	padding: 10px 10px;
+	padding: 5px 5px;
 	background-color: none;
-	border-color: #252525;
 }
 .table{
-	border-color: #252525;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .register-header{
 	position: sticky;
@@ -127,10 +126,10 @@
 }
 
 .card .table-card{
-	border-color: #252525;
 	height: 100%;
 	width: 100%;
 	padding: 10px 10px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 .container{
 	display: grid;
@@ -219,18 +218,24 @@
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
-.wrapper {
+/* .wrapper {
 	flex: 0 0 150px;
-}
+} */
 
 #sidebar {
     min-width: 250px;
     max-width: 200px;
-	height: 100%;
     background: #F5F5FC;
     color: #252525;
 	font-weight: bold;
     transition: all 0.3s;
+	height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 #sidebar.active {

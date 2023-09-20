@@ -27,7 +27,6 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Email</th>
-                                <th>Password</th>
                                 <th>Level</th>
                                 <th>Action</th>
                             </tr>
@@ -40,7 +39,6 @@
                                     <td>{{ $list['id'] }}</td>
                                     <td>{{ $list['name'] }}</td>
                                     <td>{{ $list['email'] }}</td>
-                                    <td>{{ $list['password'] }}</td>
                                     <td>{{ $list['level'] }}</td>
                                     <td>
                                         <form action="{{ url('listUser', $list->id) }}" method="post">
