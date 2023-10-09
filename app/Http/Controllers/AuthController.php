@@ -10,6 +10,18 @@ class AuthController extends Controller
     //
     public function postLogin(Request $request)
     {
+        $rules = [
+            'username' => 'required',
+            'password' => 'min:5|required',
+            'g-recaptcha-response' => 'required'
+        ];
+        $this->validate($request, $rules, [
+            'username.required' => 'Username is required',
+            'password.required' => 'Password is required',
+            'password.min' => 'Password should be minimum 5 length',
+            'g-recaptcha-response.required' => 'Please complete reCaptcha',
+        ]);
+
         $credentials = $request->validate([
             'username' => 'required',
             'password' => 'required',

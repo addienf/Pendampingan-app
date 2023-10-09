@@ -62,12 +62,6 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div>
-                                <div class="g-recaptcha mb-3" data-sitekey="6LeayksnAAAAAF1GUZP2TRThZVtpkkC5WsehUqzM"></div>
-                                @error('g-recaptcha-response')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="btn-submit">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
