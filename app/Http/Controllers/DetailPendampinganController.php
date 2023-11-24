@@ -121,9 +121,9 @@ class DetailPendampinganController extends Controller
     public function destroy($desc)
     {
         $detail = DetailPendampingan::where('deskripsi', $desc)->delete();
-        if ($detail) {
-            Storage::delete($detail->upload_file);
-        }
+        // if ($detail) {
+        //     Storage::delete($detail->upload_file);
+        // }
         return redirect('list');
     }
 }

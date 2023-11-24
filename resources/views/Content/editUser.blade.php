@@ -48,7 +48,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('password') is-invalid @enderror"
                                 id="basic-addon3">Password</span>
-                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                            <input type="password" class="form-control" id="basic-url" aria-describedby="basic-addon3"
                                 name="password">
                             @error('password')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -57,7 +57,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('password_confirmation') is-invalid @enderror"
                                 id="basic-addon3">Confirm Password</span>
-                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                            <input type="password" class="form-control" id="basic-url" aria-describedby="basic-addon3"
                                 name="password_confirmation" id="password_confirmation">
                             @error('password_confirmation')
                                 <div class="invalid-feedback">{{ $message }}</div>
